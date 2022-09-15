@@ -1,7 +1,7 @@
 #ifndef TRADE_MODE_H
 #define TRADE_MODE_H
 
-namespace engine
+namespace order
 {
     enum class TradeMode
     {
@@ -9,6 +9,6 @@ namespace engine
         IOC, // Immediate Or Cancel
         FOK  // Fill Or Kill
     };
-} // namespace engine
+} // namespace order
 
 #endif
