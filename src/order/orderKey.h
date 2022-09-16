@@ -3,23 +3,45 @@
 
 #include <map>
 #include <stdint.h>
+#include "direction.h"
 
 namespace order
 {
     class OrderKey
     {
-    private:
-        uint64_t m_id{};
-        uint64_t m_price{}; // cent
+    public:
+        std::uint64_t m_id{};
+        std::uint64_t m_price{}; // cent
+        Direction m_direction{};
+
     public:
         OrderKey() = delete;
-        OrderKey(uint64_t id, uint64_t price);
+        OrderKey(std::uint64_t id, std::uint64_t price,
+                 Direction direction);
+    };
 
-        bool operator>(const OrderKey key);
-        bool operator>=(const OrderKey key);
-        bool operator=(const OrderKey key);
-        bool operator<(const OrderKey key);
-        bool operator<=(const OrderKey key);
+    struct orderKeyCmp
+    {
+        bool operator()(OrderKey &lhs, OrderKey &rhs)
+        {
+            bool result = false; // less
+            if (lhs.m_direction == Direction::BUY)
+            {
+                if (lhs.m_price < rhs.m_price)
+                    result = true;
+                else
+                    result = lhs.m_id < rhs.m_id;
+            }
+            else if (lhs.m_direction == Direction::SELL)
+            {
+                if (lhs.m_price > rhs.m_price)
+                    result = true;
+                else
+                    result = lhs.m_id < rhs.m_id;
+            }
+
+            return result;
+        }
     };
 } // namespace order
 

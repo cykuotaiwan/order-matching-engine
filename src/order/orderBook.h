@@ -11,9 +11,8 @@ namespace order
     {
     private:
         Direction m_direction{};
-        std::map<OrderKey, Order> m_book;
+        std::map<OrderKey, Order, orderKeyCmp> m_book;
         
-        void sort();
     public:
         OrderBook() = delete;
         OrderBook(Direction direction);
