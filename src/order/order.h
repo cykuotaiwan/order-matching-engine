@@ -7,7 +7,7 @@
 #include "tradeMode.h"
 #include "orderKey.h"
 
-namespace order
+namespace Order
 {
     class Order
     {
@@ -25,6 +25,6 @@ namespace order
         OrderKey getOrderKey();
     };
 
-} // namespace order
+} // namespace Order
 
 #endif

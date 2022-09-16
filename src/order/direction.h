@@ -1,13 +1,13 @@
 #ifndef DIRECTION_H
 #define DIRECTION_H
 
-namespace order
+namespace Order
 {
     enum class Direction
     {
         BUY,
         SELL
     };
-} // namespace order
+} // namespace Order
 
 #endif

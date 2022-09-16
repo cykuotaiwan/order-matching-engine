@@ -1,6 +1,6 @@
 #include "order.h"
 
-namespace order
+namespace Order
 {
     Order::Order(std::uint64_t id, std::uint64_t price, Direction direction,
                  TradeMode mode, std::uint64_t amount)
@@ -14,4 +14,4 @@ namespace order
         return key;
     }
 
-} // namespace order
+} // namespace Order

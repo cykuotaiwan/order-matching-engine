@@ -5,7 +5,7 @@
 #include "order.h"
 #include "orderKey.h"
 
-namespace order
+namespace Order
 {
     class OrderBook
     {
@@ -24,6 +24,6 @@ namespace order
         int size();
         bool empty();
     };
-} // namespace order
+} // namespace Order
 
 #endif

@@ -1,6 +1,6 @@
 #include "orderBook.h"
 
-namespace order
+namespace Order
 {
     OrderBook::OrderBook(Direction direction)
         : m_direction(direction)
@@ -38,4 +38,4 @@ namespace order
         return this->m_book.empty();
     }
 
-} // namespace order
+} // namespace Order

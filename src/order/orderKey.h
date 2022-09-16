@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include "direction.h"
 
-namespace order
+namespace Order
 {
     class OrderKey
     {
@@ -43,6 +43,6 @@ namespace order
             return result;
         }
     };
-} // namespace order
+} // namespace Order
 
 #endif
