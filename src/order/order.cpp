@@ -8,10 +8,10 @@ namespace Order
           m_mode(mode), m_amount(amount)
     {
     }
+
     OrderKey Order::getOrderKey()
     {
         OrderKey key(this->m_id, this->m_price, this->m_direction);
         return key;
     }
-
 } // namespace Order

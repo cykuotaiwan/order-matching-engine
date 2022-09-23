@@ -13,11 +13,13 @@ all: main
 main: $(SRCDIR)main.cpp
 	$(CC) $(CFLGA) $(STD) -o $(BINDIR)$(EXE) $(SRCDIR)main.cpp
 
-test: testOrderBook
+test: testOrderBook testOrder
 
 testOrderBook: $(TESTDIR)testOrderBook.cpp
 	$(CC) $(CFLGA) $(STD) -o $(BINDIR)testOrderBook $(TESTDIR)testOrderBook.cpp $(SRCDIR)order/order.cpp $(SRCDIR)order/orderBook.cpp $(SRCDIR)order/orderKey.cpp
 
+testOrder: $(TESTDIR)testOrder.cpp
+	$(CC) $(CFLGA) $(STD) -o $(BINDIR)testOrder $(TESTDIR)testOrder.cpp $(SRCDIR)order/order.cpp $(SRCDIR)order/orderKey.cpp
 
 .PHONY: all clean
 clean:
