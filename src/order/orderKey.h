@@ -26,7 +26,7 @@ namespace Order
 
     struct orderKeyCmp
     {
-        bool operator()(const OrderKey &lhs, const OrderKey &rhs)
+        inline bool operator()(const OrderKey &lhs, const OrderKey &rhs) const
         {
             return lhs < rhs;
         }
