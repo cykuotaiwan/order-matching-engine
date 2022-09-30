@@ -9,7 +9,7 @@ namespace Order
 {
     class OrderKey
     {
-    public:
+    private:
         std::uint64_t m_id{};
         std::uint64_t m_price{}; // cent
         Direction m_direction{};
@@ -18,29 +18,17 @@ namespace Order
         OrderKey() = delete;
         OrderKey(std::uint64_t id, std::uint64_t price,
                  Direction direction);
+        bool operator>(const OrderKey &other) const;
+        bool operator<(const OrderKey &other) const;
+        bool operator==(const OrderKey &other) const;
+        bool operator!=(const OrderKey &other) const;
     };
 
     struct orderKeyCmp
     {
-        bool operator()(OrderKey &lhs, OrderKey &rhs)
+        bool operator()(const OrderKey &lhs, const OrderKey &rhs)
         {
-            bool result = false; // less
-            if (lhs.m_direction == Direction::BUY)
-            {
-                if (lhs.m_price < rhs.m_price)
-                    result = true;
-                else
-                    result = lhs.m_id < rhs.m_id;
-            }
-            else if (lhs.m_direction == Direction::SELL)
-            {
-                if (lhs.m_price > rhs.m_price)
-                    result = true;
-                else
-                    result = lhs.m_id < rhs.m_id;
-            }
-
-            return result;
+            return lhs < rhs;
         }
     };
 } // namespace Order
