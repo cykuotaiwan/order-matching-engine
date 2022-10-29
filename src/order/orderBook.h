@@ -17,8 +17,8 @@ namespace Order
         OrderBook() = delete;
         OrderBook(Direction direction);
 
-        bool add(Order order);
-        bool remove(Order order) ;
+        bool add(Order& order);
+        bool remove(Order& order) ;
         Order getFirst() const;
 
         int size() const;

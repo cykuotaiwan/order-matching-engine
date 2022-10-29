@@ -7,7 +7,7 @@ namespace Order
     {
     }
 
-    bool OrderBook::add(Order order)
+    bool OrderBook::add(Order &order)
     {
         OrderKey key = order.getOrderKey();
         this->m_book.emplace(key, order);
@@ -15,10 +15,11 @@ namespace Order
         return this->m_book.find(key) != this->m_book.end();
     }
 
-    bool OrderBook::remove(Order order)
+    bool OrderBook::remove(Order &order)
     {
         auto it = this->m_book.find(order.getOrderKey());
-        this->m_book.erase(it);
+        if (it != m_book.end())
+            this->m_book.erase(it);
 
         return this->m_book.find(order.getOrderKey()) == this->m_book.end();
     }
