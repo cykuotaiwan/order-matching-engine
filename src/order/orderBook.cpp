@@ -23,19 +23,23 @@ namespace Order
         return this->m_book.find(order.getOrderKey()) == this->m_book.end();
     }
 
-    Order OrderBook::getFirst()
+    Order OrderBook::getFirst() const
     {
         return this->m_book.begin()->second;
     }
 
-    int OrderBook::size()
+    int OrderBook::size() const
     {
         return this->m_book.size();
     }
 
-    bool OrderBook::empty()
+    bool OrderBook::empty() const
     {
         return this->m_book.empty();
     }
 
+    Direction OrderBook::getDirection() const
+    {
+        return m_direction;
+    }
 } // namespace Order

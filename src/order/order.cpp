@@ -9,7 +9,7 @@ namespace Order
     {
     }
 
-    OrderKey Order::getOrderKey()
+    OrderKey Order::getOrderKey() const
     {
         OrderKey key(this->m_id, this->m_price, this->m_direction);
         return key;

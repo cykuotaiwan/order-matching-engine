@@ -19,10 +19,11 @@ namespace Order
 
         bool add(Order order);
         bool remove(Order order) ;
-        Order getFirst();
+        Order getFirst() const;
 
-        int size();
-        bool empty();
+        int size() const;
+        bool empty() const;
+        Direction getDirection() const;
     };
 } // namespace Order
 
