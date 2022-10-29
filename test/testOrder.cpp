@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../src/order/order.h"
+#include "../src/util/testUtil.h"
 
 using std::cout;
 using std::endl;
@@ -11,7 +12,7 @@ int main(int argc, char const *argv[])
 
     // 1. Test custom ctor
     // custom 3 param ctor
-    cout << "[Test-1] Test custom ctor: ";
+    Util::printTestMessage("[Test-1] Test custom ctor: ");
     Order::Order* order = new Order::Order(2, 1000, Order::Direction::BUY, Order::TradeMode::ROD, 10);
     auto key = order->getOrderKey();
     
@@ -23,11 +24,11 @@ int main(int argc, char const *argv[])
 
     if (result)
     {
-        cout << "PASS" << endl;
+        Util::printPassMessage("Construction succeed.");
     }
     else
     {
-        cout << "FAIL" << endl;
+        Util::printFailMessage("Construction fail.");
         return 1;
     }
 
