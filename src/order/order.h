@@ -23,6 +23,7 @@ namespace Order
         Order(std::uint64_t id, std::uint64_t price, Direction direction,
               TradeMode mode, std::uint64_t amount);
         OrderKey getOrderKey() const;
+        bool operator==(const Order &other) const;
     };
 
 } // namespace Order
