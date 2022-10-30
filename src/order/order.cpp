@@ -15,6 +15,11 @@ namespace Order
         return key;
     }
 
+    Direction Order::getDirection() const
+    {
+        return m_direction;
+    }
+
     bool Order::operator==(const Order &other) const
     {
         bool result = true;

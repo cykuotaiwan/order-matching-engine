@@ -22,7 +22,10 @@ namespace Order
         Order() = delete;
         Order(std::uint64_t id, std::uint64_t price, Direction direction,
               TradeMode mode, std::uint64_t amount);
+
         OrderKey getOrderKey() const;
+        Direction getDirection() const;
+
         bool operator==(const Order &other) const;
     };
 
