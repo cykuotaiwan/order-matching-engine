@@ -9,6 +9,9 @@ namespace Order
 
     bool OrderBook::add(Order &order)
     {
+        if (order.getDirection() != m_direction)
+            return false;
+
         OrderKey key = order.getOrderKey();
         this->m_book.emplace(key, order);
 
@@ -17,8 +20,11 @@ namespace Order
 
     bool OrderBook::remove(Order &order)
     {
+        if(m_book.empty())
+            return false;
+            
         auto it = this->m_book.find(order.getOrderKey());
-        if (it != m_book.end())
+        if (it != m_book.end() && order == it->second)
             this->m_book.erase(it);
 
         return this->m_book.find(order.getOrderKey()) == this->m_book.end();
